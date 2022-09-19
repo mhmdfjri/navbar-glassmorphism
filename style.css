@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Shadows+Into+Light&family=Splash&display=swap');
+*,
+html,
+body {
+  margin: 0;
+  padding: 0px;
+  font-family: sans-serif;
+}
+body {
+  background: linear-gradient(90deg, hsla(172, 85%, 74%, 1) 0%, hsla(319, 74%, 64%, 1) 100%);
+}
+.container {
+  padding: 20px 10px;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 2px 0 rgba(20, 38, 100, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: fixed;
+  width: 98.5%;
+}
+nav ul {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  list-style: none;
+}
+nav ul li a {
+  text-decoration: none;
+  margin: 15px;
+  color: black;
+}
+nav ul li a:hover {
+  color: white;
+}
+.logo {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: 800;
+  font-size: larger;
+  letter-spacing: 3px;
+}
+/* menu toggle */
+.toggle {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-left: 100px;
+}
+.toggle span {
+  position: relative;
+  width: 30px;
+  height: 53px;
+}
+.toggle span::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: black;
+  transition: 0.5s;
+}
+.toggle span::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: black;
+  transition: 0.5s;
+}
+.toggle.active span::before {
+  transform: rotate(225deg);
+  top: 25px;
+}
+.toggle.active span::after {
+  transform: rotate(-225deg);
+  bottom: 25px;
+}
+/* responsive */
+@media screen and (max-width: 470px) {
+  .item {
+    display: none;
+  }
+  nav {
+    width: 94.5%;
+    justify-content: space-between;
+  }
+  .logo {
+    font-size: larger;
+    margin-left: 30px;
+  }
+}
+@media screen and (min-width: 560px) and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+  nav {
+    width: 97.5%;
+  }
+  .itemToggle {
+    display: none;
+  }
+  .toggle {
+    display: none;
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  nav {
+    width: 97.5%;
+  }
+  .toggle {
+    display: none;
+  }
+  .itemToggle {
+    display: none;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .toggle {
+    display: none;
+  }
+  .itemToggle {
+    display: none;
+  }
+  .item {
+    margin-right: -350px;
+  }
+}
+.itemToggle {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  list-style: none;
+}
+.itemToggle ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-top: 340px;
+  align-items: center;
+  list-style: none;
+  width: 200px;
+  height: 250px;
+  right: 0px;
+  visibility: hidden;
+}
+.itemToggle ul li {
+  position: relative;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+  padding: 23px 0;
+  transform: translateX(-250px);
+  transition-delay: calc(0.1s * var(--i));
+}
+.itemToggle.active ul li {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0px);
+}
+.itemToggle.active ul {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 1px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(55px);
+  -webkit-backdrop-filter: blur(55px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  visibility: visible;
+  z-index: 1;
+}
